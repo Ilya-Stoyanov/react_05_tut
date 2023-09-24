@@ -12,11 +12,9 @@ function App() {
   const [newItems, setNewItems] = useState("");
   const [serchItem, setSerchItem] = useState("")
 
-  // console.log("before loading");
   useEffect(() => {
     localStorage.setItem("todoloist", JSON.stringify(items))
   }, [items])
-  // console.log("after loading");
 
   const handleCheck = (id) =>{
     const listItems = items.map(item => item.id === id ? {...item, checked: !item.checked} : item)
@@ -28,11 +26,6 @@ function App() {
     const listItems = items.filter(item => item.id !== id)
     setItems(listItems)
   }
-
-  // const setAndSaveItems = newItems => {
-  //   setItems(newItems)
-  //   localStorage.setItem("todoloist", JSON.stringify(newItems))
-  // }
 
   const addItem = item => {
     const id = items.length ? items[items.length - 1].id + 1 : 1;
